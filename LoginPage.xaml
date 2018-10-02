@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CIS494CourseProject.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Margin="10,10,10,10"
+                HorizontalOptions="Center"
+                Text="Login"
+                VerticalOptions="Center" />
+            <Entry Placeholder="User" />
+            <Entry Placeholder="Pass" />
+            <Button Text="Login" />
+            <Button Clicked="CreateAccountClicked" Text="Create New Account" />
+            <Button Text="Forgot Password" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

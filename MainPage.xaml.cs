@@ -13,5 +13,10 @@ namespace CIS494CourseProject
         {
             InitializeComponent();
         }
+
+        private void LoginClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
     }
 }
