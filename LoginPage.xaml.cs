@@ -21,5 +21,10 @@ namespace CIS494CourseProject
         {
             Navigation.PushAsync( new CreateAccountPage() );
         }
+
+        private void LoginButtonClicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

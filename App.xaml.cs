@@ -1,18 +1,26 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
+using System.IO;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace CIS494CourseProject
 {
     public partial class App : Application
     {
+        //public static SQLiteAsyncConnection database;
+
+
         public App()
         {
             InitializeComponent();
-
+            //database = CreateSQLiteDatabaseConnection(".\\Database\\FoodTrackerDB.db");
             MainPage = new NavigationPage( new MainPage() );
+            
         }
+
+        
 
         protected override void OnStart()
         {
@@ -28,5 +36,11 @@ namespace CIS494CourseProject
         {
             // Handle when your app resumes
         }
+
+        //public SQLiteAsyncConnection CreateSQLiteDatabaseConnection(string dbPath)
+        //{
+        //    database = new SQLiteAsyncConnection(dbPath);
+        //    return database;
+        //}
     }
 }

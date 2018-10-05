@@ -6,13 +6,21 @@
     <ContentPage.Content>
         <StackLayout>
             <Label
-                Margin="10,10,10,10"
+                Margin="10,50,10,10"
+                FontSize="48"
                 HorizontalOptions="Center"
-                Text="Login"
+                Text="User Login"
                 VerticalOptions="Center" />
-            <Entry Placeholder="User" />
-            <Entry Placeholder="Pass" />
-            <Button Text="Login" />
+            <Entry
+                BindingContext="userNameInput"
+                HorizontalTextAlignment="Center"
+                Placeholder="Username" />
+            <Entry
+                BindingContext="userPasswordInput"
+                HorizontalTextAlignment="Center"
+                IsPassword="True"
+                Placeholder="Password" />
+            <Button Clicked="LoginButtonClicked" Text="Login" />
             <Button Clicked="CreateAccountClicked" Text="Create New Account" />
             <Button Text="Forgot Password" />
         </StackLayout>

@@ -9,9 +9,11 @@
     <StackLayout>
         <!--  Place new controls here  -->
         <Label
+            Margin="10,50,10,10"
+            FontSize="48"
             HorizontalOptions="Center"
-            Text="Food Tracker "
-            VerticalOptions="CenterAndExpand" />
+            Text="Food Tracker"
+            VerticalOptions="Center" />
         <Button Clicked="LoginClicked" Text="Login" />
     </StackLayout>
 
