@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CIS494CourseProject.CreateAccountPage">
+<ContentPage
+    x:Class="CIS494CourseProject.CreateAccountPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label
+                Margin="10,75,10,10"
+                FontSize="28"
+                HorizontalOptions="Center"
+                Text="Create Your Account"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="CreateAccountUsername"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter Desired Username" />
+            <Entry
+                x:Name="CreateAccountPassword"
+                HorizontalTextAlignment="Center"
+                IsPassword="True"
+                Placeholder="Enter Desired Password" />
+            <Entry
+                x:Name="CreateAccountPasswordTest"
+                HorizontalTextAlignment="Center"
+                IsPassword="True"
+                Placeholder="Re-enter Desired Password" />
+            <Button Clicked="CreateNewAccountClicked" Text="Create New Account" />
+            <Button Text="Cancel" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

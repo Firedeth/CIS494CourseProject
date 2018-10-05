@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS494CourseProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace CIS494CourseProject
 		public CreateAccountPage ()
 		{
 			InitializeComponent ();
+            
 		}
-	}
+
+        public void CreateUserAccount(string username, string password)
+        {
+            User user = new User(username, password);
+            App.database.InsertAsync(user);
+        }
+
+        private void CreateNewAccountClicked(object sender, EventArgs e)
+        {
+            CreateUserAccount(CreateAccountUsername.Text, CreateAccountPassword.Text);
+        }
+    }
 }

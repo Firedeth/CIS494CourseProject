@@ -1,35 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="AppFoodData" Category="Table" Bounds="-80.5424999999999,-78.6499250000001,118.683333333333,141.92" Group="Expanded" Label="AppFoodData" />
-    <Node Id="AppFoodData_FoodName" Category="Field" Bounds="-60.5424999999999,17.3100749999999,78.6833333333333,25.96" Description="text" Label="FoodName" />
-    <Node Id="AppFoodData_Id" Category="Field Primary" Bounds="-60.5424999999999,-38.6499250000001,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Database" Category="Database" Bounds="-100.5425,-118.649925,378.23,373.84" Group="Expanded" Label="FoodTrackerDB.db" />
-    <Node Id="LoginData" Category="Table" Bounds="68.1408333333334,-78.6499250000001,189.546666666667,141.92" Group="Expanded" Label="LoginData" />
-    <Node Id="LoginData_Id" Category="Field Primary" Bounds="88.1408333333334,-38.6499250000001,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="LoginData_Password" Category="Field" Bounds="168.140833333333,-38.6499250000001,69.5466666666666,25.96" Description="text" Label="Password" />
-    <Node Id="LoginData_Username" Category="Field" Bounds="88.1408333333334,17.3100749999999,73.2966666666666,25.96" Description="text" Label="Username" />
-    <Node Id="UserFoodTracking" Category="Table" Bounds="-76.5424999999999,93.2700749998469,219.483333333333,141.920305896142" Group="Expanded" Label="UserFoodTracking" UseManualLocation="True" />
-    <Node Id="UserFoodTracking_ConcernLevel" Category="Field" Bounds="32.0508333969116,189.230280895989,90.89,25.96" Description="bigint" Label="ConcernLevel" />
-    <Node Id="UserFoodTracking_FoodID" Category="Field" Bounds="-56.542499109904,189.230280895996,58.5933333333333,25.96" Description="bigint" Label="FoodID" />
-    <Node Id="UserFoodTracking_Id" Category="Field Primary" Bounds="-56.5424995422363,133.270175,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="UserFoodTracking_UserID" Category="Field" Bounds="23.4574976476034,133.270174999993,55.3933333333333,25.96" Description="bigint" Label="UserID" />
+    <Node Id="AppFoodData" Category="Table" Bounds="-144.682521523611,100.270434057617,118.683333333333,141.920305895996" Group="Expanded" Label="AppFoodData" />
+    <Node Id="AppFoodData_FoodName" Category="Field" Bounds="-124.682521523611,196.230639953613,78.6833333333333,25.96" Description="text" Label="FoodName" />
+    <Node Id="AppFoodData_Id" Category="Field Primary" Bounds="-124.68251821754,140.270534057617,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ConcernDetails" Category="Field" Bounds="265.73770711263,217.031989873467,99.8033333333333,25.96" Label="ConcernDetails" />
+    <Node Id="Database" Category="Database" Bounds="-164.682525126139,-156.305589167505,631.39298248291,439.297859432234" Group="Expanded" Label="FoodTrackerDB.db" UseManualLocation="True" />
+    <Node Id="Date" Category="Field" Bounds="224.723799383255,-20.3452294158942,70.6700000000001,25.96" Label="DateTime" />
+    <Node Id="FoodTransaction" Category="Table" Bounds="204.723799383255,-116.305229415894,241.986666666667,197.88" Group="Expanded" Label="FoodTransaction" />
+    <Node Id="ID" Category="Field Primary" Bounds="265.737701416016,161.071889873467,50,25.96" Label="ID" />
+    <Node Id="ID1" Category="Field Primary" Bounds="224.723799383255,-76.3052294158942,50,25.96" Label="ID" />
+    <Node Id="LoginData" Category="Table" Bounds="7.55747149149585,112.57507814251,189.546672388713,141.920382189941" Group="Expanded" Label="LoginData" />
+    <Node Id="LoginData_Id" Category="Field Primary" Bounds="27.5574760437012,152.575239177666,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="LoginData_Password" Category="Field" Bounds="107.557477213542,152.57517814251,69.5466666666666,25.96" Description="text" Label="Password" />
+    <Node Id="LoginData_Username" Category="Field" Bounds="27.5574714914959,208.535360332451,73.2966666666666,25.96" Description="text" Label="Username" />
+    <Node Id="Reaction" Category="Field" Bounds="224.723799383255,35.6147705841059,102.496666666667,25.96" Label="ConcernLevelID" />
+    <Node Id="ReactionDetails" Category="Field" Bounds="325.393799383255,-20.3452294158942,101.316666666667,25.96" />
+    <Node Id="UserFoodTracking" Category="Table" Bounds="-60.9570429062606,-71.6500600219725,219.483341522217,141.920382189941" Group="Expanded" Label="UserFoodTracking" />
+    <Node Id="UserFoodTracking_ConcernLevel" Category="Field" Bounds="47.6362986159562,24.3101458740235,90.89,25.96" Description="bigint" Label="ConcernLevel" />
+    <Node Id="UserFoodTracking_FoodID" Category="Field" Bounds="-40.9570424739282,24.3102221679689,58.5933333333333,25.96" Description="bigint" Label="FoodID" />
+    <Node Id="UserFoodTracking_Id" Category="Field Primary" Bounds="-40.9570429062606,-31.6498837280272,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="UserFoodTracking_UserID" Category="Field" Bounds="39.0429609592993,-31.6499600219725,55.3933333333333,25.96" Description="bigint" Label="UserID" />
+    <Node Id="UserID" Category="Field" Bounds="304.723799383255,-76.3052294158942,55.3933333333333,25.96" />
+    <Node Id="d597e0e6-0123-4e72-8d46-18aa78a197361" Category="Table" Bounds="245.737701416016,121.071789873467,139.803339029948,141.9203" Group="Expanded" Label="ConcernLevelData" />
   </Nodes>
   <Links>
     <Link Source="AppFoodData" Target="AppFoodData_FoodName" Category="Contains" />
     <Link Source="AppFoodData" Target="AppFoodData_Id" Category="Contains" />
     <Link Source="Database" Target="AppFoodData" Category="Contains" />
+    <Link Source="Database" Target="FoodTransaction" Category="Contains" />
     <Link Source="Database" Target="LoginData" Category="Contains" />
     <Link Source="Database" Target="UserFoodTracking" Category="Contains" />
+    <Link Source="Database" Target="d597e0e6-0123-4e72-8d46-18aa78a197361" Category="Contains" />
+    <Link Source="FoodTransaction" Target="Date" Category="Contains" />
+    <Link Source="FoodTransaction" Target="ID1" Category="Contains" />
+    <Link Source="FoodTransaction" Target="Reaction" Category="Contains" />
+    <Link Source="FoodTransaction" Target="ReactionDetails" Category="Contains" />
+    <Link Source="FoodTransaction" Target="UserID" Category="Contains" />
     <Link Source="LoginData" Target="LoginData_Id" Category="Contains" />
     <Link Source="LoginData" Target="LoginData_Password" Category="Contains" />
     <Link Source="LoginData" Target="LoginData_Username" Category="Contains" />
+    <Link Source="Reaction" Target="ID" Bounds="293.677816559761,62.5748753356933,12.0258968972386,89.57704583733" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_ConcernLevel" Category="Contains" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_FoodID" Category="Contains" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_Id" Category="Contains" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_UserID" Category="Contains" />
     <Link Source="UserFoodTracking_FoodID" Target="AppFoodData_Id" Bounds="-34.7424697245382,-3.69603678623609,7.02406138775137,192.926464904484" />
-    <Link Source="UserFoodTracking_UserID" Target="LoginData_Id" Bounds="55.8341615775268,-4.22373545887736,49.5740465841278,137.49391045887" />
+    <Link Source="UserFoodTracking_UserID" Target="LoginData_Id" Bounds="80.739805982913,-12.6901933566917,54.2025367750128,137.586759583778" />
+    <Link Source="UserID" Target="LoginData_Id" Bounds="77.1629852132837,6.17032516479378,188.9639656304,141.022042376917" />
+    <Link Source="d597e0e6-0123-4e72-8d46-18aa78a197361" Target="ConcernDetails" Category="Contains" />
+    <Link Source="d597e0e6-0123-4e72-8d46-18aa78a197361" Target="ID" Category="Contains" />
   </Links>
   <Categories>
     <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
