@@ -11,8 +11,11 @@
 
   <ItemGroup>
     <Compile Remove="CIS494CourseProject.Android\**" />
+    <Compile Remove="CIS494CourseProject.IOS\**" />
     <EmbeddedResource Remove="CIS494CourseProject.Android\**" />
+    <EmbeddedResource Remove="CIS494CourseProject.IOS\**" />
     <None Remove="CIS494CourseProject.Android\**" />
+    <None Remove="CIS494CourseProject.IOS\**" />
   </ItemGroup>
 
   <ItemGroup>

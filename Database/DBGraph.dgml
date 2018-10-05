@@ -28,7 +28,7 @@
     <Link Source="UserFoodTracking" Target="UserFoodTracking_FoodID" Category="Contains" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_Id" Category="Contains" />
     <Link Source="UserFoodTracking" Target="UserFoodTracking_UserID" Category="Contains" />
-    <Link Source="UserFoodTracking_FoodID" Target="AppFoodData_Id" Bounds="-34.7424718448627,-3.69618401265795,7.02406376163149,192.926464908654" />
+    <Link Source="UserFoodTracking_FoodID" Target="AppFoodData_Id" Bounds="-34.7424697245382,-3.69603678623609,7.02406138775137,192.926464904484" />
     <Link Source="UserFoodTracking_UserID" Target="LoginData_Id" Bounds="55.8341615775268,-4.22373545887736,49.5740465841278,137.49391045887" />
   </Links>
   <Categories>
