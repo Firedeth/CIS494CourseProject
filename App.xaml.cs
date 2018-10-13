@@ -9,17 +9,18 @@ namespace CIS494CourseProject
 {
     public partial class App : Application
     {
-        public static SQLiteAsyncConnection database;
-        public static string dbPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Database\\FoodTrackerDB.db";
-
+        static SQLiteDb database; 
 
         public App()
         {
-            InitializeComponent();
-            database = new SQLiteAsyncConnection(dbPath);
-            MainPage = new NavigationPage( new MainPage() );
-            
-            
+
+        InitializeComponent();
+
+            database = new SQLiteDb(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FoodTrackerDB.db"));
+            database.Create();
+
+            MainPage = new NavigationPage(new MainPage());
+
         }
 
         
@@ -39,10 +40,6 @@ namespace CIS494CourseProject
             // Handle when your app resumes
         }
 
-        public SQLiteAsyncConnection CreateSQLiteDatabaseConnection(string dbPath)
-        {
-            database = new SQLiteAsyncConnection(dbPath);
-            return database;
-        }
+
     }
 }

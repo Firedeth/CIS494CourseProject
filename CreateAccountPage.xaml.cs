@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static CIS494CourseProject.SQLiteDb;
 
 namespace CIS494CourseProject
 {
@@ -21,8 +22,8 @@ namespace CIS494CourseProject
 
         public void CreateUserAccount(string username, string password)
         {
-            User user = new User(username, password);
-            App.database.InsertAsync(user);
+            //LoginData user = new LoginData(username, password);
+            //App.database.InsertAsync(user);
         }
 
         private void CreateNewAccountClicked(object sender, EventArgs e)

@@ -13,7 +13,7 @@
             FontSize="48"
             HorizontalOptions="Center"
             Text="Food Tracker"
-            VerticalOptions="Center" />
+            TextColor="BurlyWood" />
         <Button Clicked="LoginClicked" Text="Login" />
     </StackLayout>
 

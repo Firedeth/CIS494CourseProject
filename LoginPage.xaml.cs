@@ -1,11 +1,14 @@
-﻿using System;
+﻿using CIS494CourseProject.Model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static CIS494CourseProject.SQLiteDb;
 
 namespace CIS494CourseProject
 {
@@ -24,6 +27,13 @@ namespace CIS494CourseProject
 
         private void LoginButtonClicked(object sender, EventArgs e)
         {
+            LoginData user = new LoginData();
+            user.UserName = "James";
+            user.Password = "Pass";
+            CreateUser(user);
+
+            
+            Debug.WriteLine(GetUserID(user.UserName).ToString());
 
         }
     }
