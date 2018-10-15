@@ -20,15 +20,23 @@ namespace CIS494CourseProject
             
 		}
 
-        public void CreateUserAccount(string username, string password)
-        {
-            //LoginData user = new LoginData(username, password);
-            //App.database.InsertAsync(user);
-        }
-
         private void CreateNewAccountClicked(object sender, EventArgs e)
         {
-            CreateUserAccount(CreateAccountUsername.Text, CreateAccountPassword.Text);
+            LoginData user = new LoginData();
+            user.UserName = CreateAccountUsername.Text;
+            if (CreateAccountPassword.Text == CreateAccountPasswordTest.Text)
+            {
+                user.Password = CreateAccountPassword.Text;
+                CreateUser(user);
+            } else
+            {
+                
+            }
+        }
+
+        private void CancelClicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

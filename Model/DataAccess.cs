@@ -4,6 +4,7 @@
 using CIS494CourseProject.Model;
 using SQLite;
 using System;
+using System.Diagnostics;
 
 namespace CIS494CourseProject
 {
@@ -43,10 +44,31 @@ namespace CIS494CourseProject
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
-                db.Insert(obj);
+                
+                Debug.WriteLine("Creation of user " + obj.UserName + " successful? " + db.Insert(obj));
             }
         }
-            //[Table ("ConcernLevelData")]
+
+        public static int LoginUser(LoginData obj)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var logins = db.Table<LoginData>();
+
+                LoginData user = logins.Where(uid => uid.UserID == obj.UserID).FirstOrDefault();
+
+                if (user != null)
+                {
+                    Globals.UserID = user.UserID;
+                    Globals.isLoggedIn = true;
+                    return 1;
+                }
+                return 0;
+            }
+
+
+        }
+        //[Table ("ConcernLevelData")]
         public partial class ConcernLevelData
         {
             [PrimaryKey, AutoIncrement]

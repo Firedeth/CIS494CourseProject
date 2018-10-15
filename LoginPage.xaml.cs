@@ -28,13 +28,17 @@ namespace CIS494CourseProject
         private void LoginButtonClicked(object sender, EventArgs e)
         {
             LoginData user = new LoginData();
-            user.UserName = "James";
-            user.Password = "Pass";
-            CreateUser(user);
-
-            
-            Debug.WriteLine(GetUserID(user.UserName).ToString());
-
+            user.UserName = userNameInput.Text;
+            user.Password = userPasswordInput.Text;
+            Debug.WriteLine("Login successful? - " + LoginUser(user));
+            if (Globals.isLoggedIn == false)
+            {
+                ErrorText.Text = "Wrong Username or Password Entered";
+                ErrorText.IsVisible = true;
+            } else
+            {
+                Navigation.PushAsync(new MainPage());
+            }
         }
     }
 }

@@ -12,17 +12,24 @@
                 Text="User Login"
                 VerticalOptions="Center" />
             <Entry
-                BindingContext="userNameInput"
+                x:Name="userNameInput"
                 HorizontalTextAlignment="Center"
                 Placeholder="Username" />
             <Entry
-                BindingContext="userPasswordInput"
+                x:Name="userPasswordInput"
                 HorizontalTextAlignment="Center"
                 IsPassword="True"
                 Placeholder="Password" />
             <Button Clicked="LoginButtonClicked" Text="Login" />
             <Button Clicked="CreateAccountClicked" Text="Create New Account" />
             <Button Text="Forgot Password" />
+            <Entry
+                x:Name="ErrorText"
+                HorizontalTextAlignment="Center"
+                IsVisible="False"
+                Placeholder="An Error Has Occured"
+                PlaceholderColor="Red"
+                TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

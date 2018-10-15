@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
 using System.IO;
+using CIS494CourseProject.Model;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace CIS494CourseProject
@@ -28,16 +29,21 @@ namespace CIS494CourseProject
         protected override void OnStart()
         {
             // Handle when your app starts
+            Globals.isLoggedIn = false;
+            Globals.UserID = null;
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            Globals.isLoggedIn = false;
+            Globals.UserID = null;
         }
 
 
