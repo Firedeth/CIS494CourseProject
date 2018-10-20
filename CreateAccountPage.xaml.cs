@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static CIS494CourseProject.SQLiteDb;
+using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace CIS494CourseProject
 {
@@ -26,7 +28,20 @@ namespace CIS494CourseProject
             user.UserName = CreateAccountUsername.Text;
             if (CreateAccountPassword.Text == CreateAccountPasswordTest.Text)
             {
-                user.Password = CreateAccountPassword.Text;
+                SHA512 myHash = SHA512.Create();
+                myHash.Initialize();
+                myHash.GetHashCode();
+                byte[] hashValue = myHash.ComputeHash(Encoding.UTF8.GetBytes(CreateAccountPassword.Text));
+
+                StringBuilder hashedPass = new StringBuilder();
+                foreach (var x in hashValue)
+                {
+                    hashedPass.Append(x).ToString();
+                }
+
+                user.Password = hashedPass.ToString();
+                Debug.WriteLine("Username = " + user.UserName);
+                Debug.WriteLine("Hashed = " + user.Password);
                 CreateUser(user);
             } else
             {

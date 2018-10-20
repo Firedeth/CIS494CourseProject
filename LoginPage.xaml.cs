@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,25 @@ namespace CIS494CourseProject
         {
             LoginData user = new LoginData();
             user.UserName = userNameInput.Text;
-            user.Password = userPasswordInput.Text;
+            SHA512 myHash = SHA512.Create();
+            byte[] hashValue = null;
+            StringBuilder hashedPass = new StringBuilder();
+            
+            myHash.Initialize();
+            myHash.GetHashCode();
+            if (userPasswordInput.Text != null)
+            {
+            hashValue = myHash.ComputeHash(Encoding.UTF8.GetBytes(userPasswordInput.Text));
+                foreach (var x in hashValue)
+                {
+                    hashedPass.Append(x).ToString();
+                }
+            }
+            if (hashedPass != null)
+            {
+                user.Password = hashedPass.ToString();
+            }
+            Debug.WriteLine("Login Username =  " + user.UserName + " Login Password = " + user.Password);
             Debug.WriteLine("Login successful? - " + LoginUser(user));
             if (Globals.isLoggedIn == false)
             {

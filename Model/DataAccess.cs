@@ -18,6 +18,9 @@ namespace CIS494CourseProject
             _path = path;
         }
 
+        /// <summary>
+        /// Checks for existing database, and if not found, will create the database.
+        /// </summary>
         public void Create()
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
@@ -29,7 +32,25 @@ namespace CIS494CourseProject
                 db.CreateTable<UserFoodTrackingData>();
             }
         }
+        
 
+        /// <summary>
+        /// Clears All LoginData - *IRREVERSIBLE*
+        /// </summary>
+        public void ClearLoginDatabase()
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                db.DropTable<LoginData>();
+                db.CreateTable<LoginData>();
+            }
+        }
+
+        /// <summary>
+        /// Returns userID from given username.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static long GetUserID(string username)
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
@@ -40,22 +61,31 @@ namespace CIS494CourseProject
             }
         }
 
+        /// <summary>
+        /// Adds the obj to the loginData table to create a userName and Password.
+        /// </summary>
+        /// <param name="obj"></param>
         public static void CreateUser(LoginData obj)
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
-                
+                Debug.WriteLine("Creation Username = " + obj.UserName + "Creation Password = " + obj.Password);
                 Debug.WriteLine("Creation of user " + obj.UserName + " successful? " + db.Insert(obj));
             }
         }
 
+        /// <summary>
+        /// Attempts to login obj using obj's username and password.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static int LoginUser(LoginData obj)
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
                 var logins = db.Table<LoginData>();
 
-                LoginData user = logins.Where(uid => uid.UserID == obj.UserID).FirstOrDefault();
+                LoginData user = logins.Where(uid => uid.UserName == obj.UserName).FirstOrDefault();
 
                 if (user != null)
                 {
