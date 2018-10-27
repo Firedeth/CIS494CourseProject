@@ -56,7 +56,7 @@ namespace CIS494CourseProject
                 ErrorText.IsVisible = true;
             } else
             {
-                Navigation.PushAsync(new MainPage());
+                Navigation.PushAsync(new MainMenu());
             }
         }
     }

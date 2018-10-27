@@ -4,11 +4,12 @@
 using CIS494CourseProject.Model;
 using SQLite;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace CIS494CourseProject
 {
-    public class SQLiteDb
+    public partial class SQLiteDb
     {
         static string _path;
         //public static SQLiteConnection db = new SQLiteConnection(_path);
@@ -30,74 +31,11 @@ namespace CIS494CourseProject
                 db.CreateTable<FoodTransaction>();
                 db.CreateTable<LoginData>();
                 db.CreateTable<UserFoodTrackingData>();
-            }
-        }
-        
-
-        /// <summary>
-        /// Clears All LoginData - *IRREVERSIBLE*
-        /// </summary>
-        public void ClearLoginDatabase()
-        {
-            using (SQLiteConnection db = new SQLiteConnection(_path))
-            {
-                db.DropTable<LoginData>();
-                db.CreateTable<LoginData>();
+                CreateFoodList();
+                CreateConcernLevels();
             }
         }
 
-        /// <summary>
-        /// Returns userID from given username.
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public static long GetUserID(string username)
-        {
-            using (SQLiteConnection db = new SQLiteConnection(_path))
-            {
-                var logins = db.Table<LoginData>();
-                LoginData user = logins.Where(un => un.UserName == username).FirstOrDefault();
-                return user.UserID;
-            }
-        }
-
-        /// <summary>
-        /// Adds the obj to the loginData table to create a userName and Password.
-        /// </summary>
-        /// <param name="obj"></param>
-        public static void CreateUser(LoginData obj)
-        {
-            using (SQLiteConnection db = new SQLiteConnection(_path))
-            {
-                Debug.WriteLine("Creation Username = " + obj.UserName + "Creation Password = " + obj.Password);
-                Debug.WriteLine("Creation of user " + obj.UserName + " successful? " + db.Insert(obj));
-            }
-        }
-
-        /// <summary>
-        /// Attempts to login obj using obj's username and password.
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static int LoginUser(LoginData obj)
-        {
-            using (SQLiteConnection db = new SQLiteConnection(_path))
-            {
-                var logins = db.Table<LoginData>();
-
-                LoginData user = logins.Where(uid => uid.UserName == obj.UserName).FirstOrDefault();
-
-                if (user != null)
-                {
-                    Globals.UserID = user.UserID;
-                    Globals.isLoggedIn = true;
-                    return 1;
-                }
-                return 0;
-            }
-
-
-        }
         //[Table ("ConcernLevelData")]
         public partial class ConcernLevelData
         {
@@ -177,5 +115,49 @@ namespace CIS494CourseProject
 
         }
 
+        public void CreateConcernLevels()
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                //db.DropTable<ConcernLevelData>();
+                db.CreateTable<ConcernLevelData>();
+
+                var concernLevelData = db.Table<ConcernLevelData>();
+                
+                
+                ConcernLevelData concernLevel = new ConcernLevelData();
+
+                
+                concernLevel.ConcernDetails = "No Reaction";
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                {
+                    db.Insert(concernLevel);
+                }
+
+                concernLevel.ConcernDetails = "Minor Reaction";
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                {
+                    db.Insert(concernLevel);
+                }
+
+                concernLevel.ConcernDetails = "Moderate Reaction";
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                {
+                    db.Insert(concernLevel);
+                }
+
+                concernLevel.ConcernDetails = "Major Reaction";
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                {
+                    db.Insert(concernLevel);
+                }
+
+                foreach (ConcernLevelData ConcernLevel in concernLevelData)
+                {
+                    Debug.WriteLine(ConcernLevel.ConcernID + " ->  " + ConcernLevel.ConcernDetails);
+                }
+                
+            }
+        }
     }
 }

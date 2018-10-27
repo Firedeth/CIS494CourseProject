@@ -17,6 +17,7 @@
                 Placeholder="Username" />
             <Entry
                 x:Name="userPasswordInput"
+                Completed="LoginButtonClicked"
                 HorizontalTextAlignment="Center"
                 IsPassword="True"
                 Placeholder="Password" />

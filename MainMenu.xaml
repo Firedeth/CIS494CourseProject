@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CIS494CourseProject.MainMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                x:Name="WelcomeText"
+                HorizontalOptions="CenterAndExpand"
+                Text="Logged in successfully! Welcome "
+                VerticalOptions="CenterAndExpand" />
+            <Button Text="Log Food Transaction" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -12,10 +12,19 @@
   <ItemGroup>
     <Compile Remove="CIS494CourseProject.Android\**" />
     <Compile Remove="CIS494CourseProject.IOS\**" />
+    <Compile Remove="packages\SQLitePCLRaw.bundle_green.1.1.11\**" />
+    <Compile Remove="packages\SQLitePCLRaw.core.1.1.11\**" />
+    <Compile Remove="packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.11\**" />
     <EmbeddedResource Remove="CIS494CourseProject.Android\**" />
     <EmbeddedResource Remove="CIS494CourseProject.IOS\**" />
+    <EmbeddedResource Remove="packages\SQLitePCLRaw.bundle_green.1.1.11\**" />
+    <EmbeddedResource Remove="packages\SQLitePCLRaw.core.1.1.11\**" />
+    <EmbeddedResource Remove="packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.11\**" />
     <None Remove="CIS494CourseProject.Android\**" />
     <None Remove="CIS494CourseProject.IOS\**" />
+    <None Remove="packages\SQLitePCLRaw.bundle_green.1.1.11\**" />
+    <None Remove="packages\SQLitePCLRaw.core.1.1.11\**" />
+    <None Remove="packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.11\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +45,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

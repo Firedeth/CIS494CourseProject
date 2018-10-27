@@ -10,7 +10,7 @@ namespace CIS494CourseProject
 {
     public partial class App : Application
     {
-        static SQLiteDb database; 
+        public static SQLiteDb database; 
 
         public App()
         {
@@ -19,10 +19,11 @@ namespace CIS494CourseProject
 
             database = new SQLiteDb(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FoodTrackerDB.db"));
             //database.ClearLoginDatabase();
+            database.ClearFoodData();
             database.Create();
-
             MainPage = new NavigationPage(new MainPage());
 
+            
         }
 
         
@@ -45,6 +46,7 @@ namespace CIS494CourseProject
             // Handle when your app resumes
             Globals.isLoggedIn = false;
             Globals.UserID = null;
+            MainPage = new NavigationPage(new MainPage());
         }
 
 
