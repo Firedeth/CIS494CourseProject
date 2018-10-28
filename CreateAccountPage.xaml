@@ -25,8 +25,20 @@
                 HorizontalTextAlignment="Center"
                 IsPassword="True"
                 Placeholder="Re-enter Desired Password" />
-            <Button Clicked="CreateNewAccountClicked" Text="Create New Account" />
-            <Button Clicked="CancelClicked" Text="Cancel" />
+            <Button
+                x:Name="CreateNewAccountButton"
+                Clicked="CreateNewAccountClicked"
+                Text="Create New Account" />
+            <Button
+                x:Name="CancelButton"
+                Clicked="CancelClicked"
+                Text="Cancel" />
+            <Label
+                x:Name="CreateSuccessfulLabel"
+                IsVisible="False"
+                Text="Account Successfully Created!"
+                TextColor="Green" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

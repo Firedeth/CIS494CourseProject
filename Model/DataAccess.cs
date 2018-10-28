@@ -114,50 +114,5 @@ namespace CIS494CourseProject
             public Int64 ConcernLevelID { get; set; }
 
         }
-
-        public void CreateConcernLevels()
-        {
-            using (SQLiteConnection db = new SQLiteConnection(_path))
-            {
-                //db.DropTable<ConcernLevelData>();
-                db.CreateTable<ConcernLevelData>();
-
-                var concernLevelData = db.Table<ConcernLevelData>();
-                
-                
-                ConcernLevelData concernLevel = new ConcernLevelData();
-
-                
-                concernLevel.ConcernDetails = "No Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
-                {
-                    db.Insert(concernLevel);
-                }
-
-                concernLevel.ConcernDetails = "Minor Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
-                {
-                    db.Insert(concernLevel);
-                }
-
-                concernLevel.ConcernDetails = "Moderate Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
-                {
-                    db.Insert(concernLevel);
-                }
-
-                concernLevel.ConcernDetails = "Major Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
-                {
-                    db.Insert(concernLevel);
-                }
-
-                foreach (ConcernLevelData ConcernLevel in concernLevelData)
-                {
-                    Debug.WriteLine(ConcernLevel.ConcernID + " ->  " + ConcernLevel.ConcernDetails);
-                }
-                
-            }
-        }
     }
 }

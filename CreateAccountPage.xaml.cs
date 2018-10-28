@@ -43,6 +43,9 @@ namespace CIS494CourseProject
                 Debug.WriteLine("Username = " + user.UserName);
                 Debug.WriteLine("Hashed = " + user.Password);
                 CreateUser(user);
+                CreateNewAccountButton.IsVisible = false;
+                CancelButton.Text = "Done";
+                CreateSuccessfulLabel.IsVisible = true;
             } else
             {
                 
