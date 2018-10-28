@@ -27,12 +27,12 @@ namespace CIS494CourseProject
             {
                 var foods = db.Table<FoodData>();
 
-                if (foods.Where(fd => fd.FoodName == food.FoodName).FirstOrDefault() != null)
+                if (foods.Where(fd => fd.FoodName == food.FoodName).FirstOrDefault() == null)
                 { db.Insert(food); }
             }
         }
 
-        public List<string> GetFoodNames(FoodData fd)
+        public List<string> GetFoodNames()
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
@@ -47,6 +47,35 @@ namespace CIS494CourseProject
             }
         }
 
+        public string GetFoodNameFromID(long? id)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var foods = db.Table<FoodData>();
+
+                FoodData fdata = foods.Where(fd => fd.FoodID == id).FirstOrDefault();
+                if(fdata != null)
+                {
+                    return fdata.FoodName;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+
+        public long GetFoodIDFromName(string foodName)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var foods = db.Table<FoodData>();
+
+                FoodData fdata = foods.Where(fd => fd.FoodName == foodName).FirstOrDefault();
+                return fdata.FoodID;
+            }
+            
+        }
 
         public void CreateFoodList()
         {

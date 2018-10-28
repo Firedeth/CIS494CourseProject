@@ -9,9 +9,17 @@
             <Label
                 x:Name="WelcomeText"
                 HorizontalOptions="CenterAndExpand"
-                Text="Logged in successfully! Welcome "
-                VerticalOptions="CenterAndExpand" />
-            <Button Text="Log Food Transaction" />
+                Text="Logged in successfully! Welcome " />
+            <Label
+                x:Name="RecentTransLabel"
+                FontSize="24"
+                MaxLines="10"
+                Text="Recent Transactions:" />
+            <ListView x:Name="RecentTransactions" />
+            <Button
+                x:Name="LogFoodTransButton"
+                Clicked="LogFoodTransButtonClicked"
+                Text="Log Food Transaction" />
             <microcharts:ChartView x:Name="chart" HeightRequest="150" />
         </StackLayout>
     </ContentPage.Content>

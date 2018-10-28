@@ -5,6 +5,7 @@ using Microcharts;
 using SkiaSharp;
 using Entry = Microcharts.Entry;
 using System.Collections.Generic;
+using static CIS494CourseProject.SQLiteDb;
 
 namespace CIS494CourseProject
 {
@@ -44,7 +45,18 @@ namespace CIS494CourseProject
                 Entries = entries
             };
 
+            List<string> foodTransList = new List<string>();
+            var foodTransUserList = App.database.GetFoodTransactionsUser();
+            foreach (var ft in foodTransUserList)
+            {
+                foodTransList.Add(ft.DateAndTime + " - " + App.database.GetConcernLevelFromID(ft.ConcernLevelID) + " - " + App.database.GetFoodNameFromID(ft.FoodID));
+            }
+            RecentTransactions.ItemsSource = foodTransList;
+        }
 
+        private void LogFoodTransButtonClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new LogFoodTrans());
         }
     }
 }

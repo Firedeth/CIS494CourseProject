@@ -25,25 +25,25 @@ namespace CIS494CourseProject
 
                 
                 concernLevel.ConcernDetails = "No Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() == null)
                 {
                     db.Insert(concernLevel);
                 }
 
                 concernLevel.ConcernDetails = "Minor Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() == null)
                 {
                     db.Insert(concernLevel);
                 }
 
                 concernLevel.ConcernDetails = "Moderate Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() == null)
                 {
                     db.Insert(concernLevel);
                 }
 
                 concernLevel.ConcernDetails = "Major Reaction";
-                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() != null)
+                if (concernLevelData.Where(food => food.ConcernDetails == concernLevel.ConcernDetails).FirstOrDefault() == null)
                 {
                     db.Insert(concernLevel);
                 }
@@ -53,6 +53,51 @@ namespace CIS494CourseProject
                     Debug.WriteLine(ConcernLevel.ConcernID + " ->  " + ConcernLevel.ConcernDetails);
                 }
                 
+            }
+        }
+
+        public List<string> GetConcernLevels()
+        {
+            var result = new List<string>();
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var concernLevels = db.Table<ConcernLevelData>();
+
+                foreach (var level in concernLevels)
+                {
+                    result.Add(level.ConcernDetails);
+                }
+            }
+            return result;
+        }
+
+        public long GetConcernLevelFromDetails(string concernDetails)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var concernLevels = db.Table<ConcernLevelData>();
+
+                var cl = concernLevels.Where(cd => cd.ConcernDetails == concernDetails).FirstOrDefault();
+
+                return cl.ConcernID;
+            }
+        }
+
+        public string GetConcernLevelFromID(long? id)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var concernLevels = db.Table<ConcernLevelData>();
+
+                var cl = concernLevels.Where(cd => cd.ConcernID == id).FirstOrDefault();
+                if (cl != null)
+                {
+                    return cl.ConcernDetails;
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
     }

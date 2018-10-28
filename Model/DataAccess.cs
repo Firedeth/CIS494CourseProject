@@ -75,6 +75,8 @@ namespace CIS494CourseProject
 
             public Int64? ConcernLevelID { get; set; }
 
+            public Int64? FoodID { get; set; }
+
         }
 
         //[Table ("LoginData")]

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CIS494CourseProject.LogFoodTrans"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout x:Name="StackLayout">
+            <Picker x:Name="foodChoicePicker" Title="Choose your food: " />
+            <DatePicker x:Name="reactionDatePicker" />
+            <TimePicker x:Name="reactionTimePicker" />
+            <Picker x:Name="concernLevelPicker" />
+            <Button
+                x:Name="submitTransactionButton"
+                Clicked="submitTransactionButtonClicked"
+                Text="Submit Transaction" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -20,6 +20,7 @@ namespace CIS494CourseProject
             database = new SQLiteDb(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FoodTrackerDB.db"));
             //database.ClearLoginDatabase();
             database.ClearFoodData();
+            database.CreateConcernLevels();
             database.Create();
             MainPage = new NavigationPage(new MainPage());
 
