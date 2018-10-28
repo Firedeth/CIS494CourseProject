@@ -41,5 +41,19 @@ namespace CIS494CourseProject
             return result;
         }
 
+        public int GetCountOfTransactionsOnDate(DateTime date)
+        {
+            int result = 0;
+
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var foodTransTable = db.Table<FoodTransaction>();
+
+                result = foodTransTable.Where(dt => dt.DateAndTime == date).Count();
+
+            }
+            return result;
+        }
+
     }
 }

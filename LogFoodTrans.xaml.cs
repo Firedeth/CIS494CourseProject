@@ -49,5 +49,6 @@ namespace CIS494CourseProject
             Navigation.InsertPageBefore(new MainMenu(), this);
             Navigation.PopAsync();
         }
+
     }
 }

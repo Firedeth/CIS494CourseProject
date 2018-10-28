@@ -98,6 +98,7 @@ namespace CIS494CourseProject
             [NotNull]
             public string Password { get; set; }
 
+            public string Email { get; set; }
         }
 
         public partial class UserFoodTrackingData

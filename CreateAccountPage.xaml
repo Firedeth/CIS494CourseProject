@@ -25,6 +25,10 @@
                 HorizontalTextAlignment="Center"
                 IsPassword="True"
                 Placeholder="Re-enter Desired Password" />
+            <Entry
+                x:Name="CreateAccountEmail"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter Email Address" />
             <Button
                 x:Name="CreateNewAccountButton"
                 Clicked="CreateNewAccountClicked"

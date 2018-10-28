@@ -40,6 +40,7 @@ namespace CIS494CourseProject
                 }
 
                 user.Password = hashedPass.ToString();
+                user.Email = CreateAccountEmail.Text;
                 Debug.WriteLine("Username = " + user.UserName);
                 Debug.WriteLine("Hashed = " + user.Password);
                 CreateUser(user);

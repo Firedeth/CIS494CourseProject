@@ -63,7 +63,7 @@ namespace CIS494CourseProject
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
-                Debug.WriteLine("Creation Username = " + obj.UserName + "Creation Password = " + obj.Password);
+                Debug.WriteLine("Creation Username = " + obj.UserName + " Creation Password = " + obj.Password + " Email = " + obj.Email);
                 Debug.WriteLine("Creation of user " + obj.UserName + " successful? " + db.Insert(obj));
             }
         }

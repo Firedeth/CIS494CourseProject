@@ -45,6 +45,34 @@ namespace CIS494CourseProject
                 Entries = entries
             };
 
+            List<Entry> dateEntries = new List<Entry>();
+            
+                foreach (var trans in App.database.GetFoodTransactionsUser())
+                {
+                    int count = App.database.GetCountOfTransactionsOnDate(trans.DateAndTime);
+
+                var entry = new Entry(count)
+                {
+                    Label = trans.DateAndTime.Month.ToString() + "\\" + trans.DateAndTime.Day.ToString() + "\\" + trans.DateAndTime.Year.ToString(),
+                    ValueLabel = count.ToString(),
+                    Color = SKColor.Parse("#90D585")
+
+                };
+
+
+                //var duplicate = dateEntries.Find(d => d.Label == entry.Label);
+                //if (duplicate != null)
+                //    {
+                dateEntries.Add(entry);
+                //    }
+                }
+            
+
+            DateChart.Chart = new LineChart()
+            {
+                Entries = dateEntries
+            };
+
             List<string> foodTransList = new List<string>();
             var foodTransUserList = App.database.GetFoodTransactionsUser();
             foreach (var ft in foodTransUserList)
@@ -56,7 +84,8 @@ namespace CIS494CourseProject
 
         private void LogFoodTransButtonClicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new LogFoodTrans());
+            Navigation.InsertPageBefore(new LogFoodTrans(), this);
+            Navigation.PopAsync();
         }
     }
 }
