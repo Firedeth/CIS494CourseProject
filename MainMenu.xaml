@@ -14,13 +14,14 @@
                 x:Name="RecentTransLabel"
                 FontSize="24"
                 MaxLines="10"
-                Text="Recent Transactions:" />
+                Text="Recently logged: " />
             <ListView x:Name="RecentTransactions" />
             <Button
                 x:Name="LogFoodTransButton"
                 Clicked="LogFoodTransButtonClicked"
                 Text="Log Food Transaction" />
-            <microcharts:ChartView x:Name="chart" HeightRequest="150" />
+            <!--<microcharts:ChartView x:Name="chart" HeightRequest="150" />-->
+            <Label Text="Reaction Count by Date" />
             <microcharts:ChartView x:Name="DateChart" HeightRequest="250" />
         </StackLayout>
     </ContentPage.Content>

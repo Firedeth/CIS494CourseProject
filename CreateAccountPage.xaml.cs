@@ -13,14 +13,14 @@ using System.Diagnostics;
 
 namespace CIS494CourseProject
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreateAccountPage : ContentPage
-	{
-		public CreateAccountPage ()
-		{
-			InitializeComponent ();
-            
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CreateAccountPage : ContentPage
+    {
+        public CreateAccountPage()
+        {
+            InitializeComponent();
+
+        }
 
         private void CreateNewAccountClicked(object sender, EventArgs e)
         {
@@ -41,15 +41,23 @@ namespace CIS494CourseProject
 
                 user.Password = hashedPass.ToString();
                 user.Email = CreateAccountEmail.Text;
+                user.SecurityQuestion = SecurityQuest.Text;
+                user.SecurityAnswer = SecurityAns.Text.ToLower();
                 Debug.WriteLine("Username = " + user.UserName);
                 Debug.WriteLine("Hashed = " + user.Password);
                 CreateUser(user);
                 CreateNewAccountButton.IsVisible = false;
                 CancelButton.Text = "Done";
+                CreateSuccessfulLabel.Text = "Account Successfully Created";
+                CreateSuccessfulLabel.TextColor = Color.Green;
                 CreateSuccessfulLabel.IsVisible = true;
-            } else
+                Navigation.PopAsync();
+            }
+            else
             {
-                
+                CreateSuccessfulLabel.Text = "Please enter all of your account information.";
+                CreateSuccessfulLabel.TextColor = Color.Red;
+                CreateSuccessfulLabel.IsVisible = true;
             }
         }
 

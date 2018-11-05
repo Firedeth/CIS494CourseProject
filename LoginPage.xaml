@@ -23,12 +23,12 @@
                 Placeholder="Password" />
             <Button Clicked="LoginButtonClicked" Text="Login" />
             <Button Clicked="CreateAccountClicked" Text="Create New Account" />
-            <Button Text="Forgot Password" />
+            <Button Clicked="ForgotPassClicked" Text="Forgot Password" />
             <Entry
                 x:Name="ErrorText"
                 HorizontalTextAlignment="Center"
                 IsVisible="False"
-                Placeholder="An Error Has Occured"
+                Placeholder="An Error Has Occurred"
                 PlaceholderColor="Red"
                 TextColor="Red" />
         </StackLayout>

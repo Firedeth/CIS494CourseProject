@@ -6,6 +6,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CIS494CourseProject
 {
@@ -45,11 +46,11 @@ namespace CIS494CourseProject
         {
             int result = 0;
 
-            using (SQLiteConnection db = new SQLiteConnection(_path))
+            using (SQLiteConnection db = new SQLiteConnection(_path, true))
             {
                 var foodTransTable = db.Table<FoodTransaction>();
 
-                result = foodTransTable.Where(dt => dt.DateAndTime == date).Count();
+                result = foodTransTable.ToList().Where(dt => dt.DateAndTime.Date == date.Date).Count();
 
             }
             return result;

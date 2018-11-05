@@ -43,6 +43,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ResetPassPage.xaml.cs">
+      <DependentUpon>ResetPassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ForgotPassPage.xaml.cs">
+      <DependentUpon>ForgotPassPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="CreateAccountPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

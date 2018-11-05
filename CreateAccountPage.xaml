@@ -29,6 +29,14 @@
                 x:Name="CreateAccountEmail"
                 HorizontalTextAlignment="Center"
                 Placeholder="Enter Email Address" />
+            <Entry
+                x:Name="SecurityQuest"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter Security Question" />
+            <Entry
+                x:Name="SecurityAns"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter Security Answer" />
             <Button
                 x:Name="CreateNewAccountButton"
                 Clicked="CreateNewAccountClicked"

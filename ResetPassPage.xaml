@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CIS494CourseProject.ResetPassPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Margin="10,50,10,10"
+                FontSize="48"
+                HorizontalOptions="Center"
+                Text="Reset Password"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="ResetPassInput1"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter New Password" />
+            <Entry
+                x:Name="ResetPassInput2"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter New Password Again" />
+            <Button Clicked="PassResetClicked" Text="Reset Password" />
+            <Button Clicked="CancelClicked" Text="Cancel" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -13,17 +13,17 @@ using static CIS494CourseProject.SQLiteDb;
 
 namespace CIS494CourseProject
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
-	{
-		public LoginPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
+    {
+        public LoginPage()
+        {
+            InitializeComponent();
+        }
 
         private void CreateAccountClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync( new CreateAccountPage() );
+            Navigation.PushAsync(new CreateAccountPage());
         }
 
         private void LoginButtonClicked(object sender, EventArgs e)
@@ -33,12 +33,12 @@ namespace CIS494CourseProject
             SHA512 myHash = SHA512.Create();
             byte[] hashValue = null;
             StringBuilder hashedPass = new StringBuilder();
-            
+
             myHash.Initialize();
             myHash.GetHashCode();
             if (userPasswordInput.Text != null)
             {
-            hashValue = myHash.ComputeHash(Encoding.UTF8.GetBytes(userPasswordInput.Text));
+                hashValue = myHash.ComputeHash(Encoding.UTF8.GetBytes(userPasswordInput.Text));
                 foreach (var x in hashValue)
                 {
                     hashedPass.Append(x).ToString();
@@ -54,10 +54,16 @@ namespace CIS494CourseProject
             {
                 ErrorText.Text = "Wrong Username or Password Entered";
                 ErrorText.IsVisible = true;
-            } else
+            }
+            else
             {
                 Navigation.PushAsync(new MainMenu());
             }
+        }
+
+        private void ForgotPassClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ForgotPassPage());
         }
     }
 }

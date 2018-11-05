@@ -6,6 +6,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CIS494CourseProject
 {
@@ -24,7 +25,27 @@ namespace CIS494CourseProject
             }
         }
 
-        public string GetUserName(long? userID)
+        public LoginData GetUserByID(long? userID)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(_path))
+            {
+                var users = db.Table<LoginData>();
+                var user = users.Where(u => u.UserID == userID).FirstOrDefault();
+
+                if (user != null)
+                {
+                    return user;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+        }
+
+        public static string GetUserName(long? userID)
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
@@ -45,13 +66,20 @@ namespace CIS494CourseProject
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public static long GetUserID(string username)
+        public static long? GetUserID(string username)
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
                 var logins = db.Table<LoginData>();
                 LoginData user = logins.Where(un => un.UserName == username).FirstOrDefault();
-                return user.UserID;
+                if (user != null)
+                {
+                    return user.UserID;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
@@ -63,7 +91,7 @@ namespace CIS494CourseProject
         {
             using (SQLiteConnection db = new SQLiteConnection(_path))
             {
-                Debug.WriteLine("Creation Username = " + obj.UserName + " Creation Password = " + obj.Password + " Email = " + obj.Email);
+                Debug.WriteLine("Creation Username = " + obj.UserName + " Creation Password = " + obj.Password + " Email = " + obj.Email + " Security Question = " + obj.SecurityQuestion);
                 Debug.WriteLine("Creation of user " + obj.UserName + " successful? " + db.Insert(obj));
             }
         }
@@ -91,6 +119,7 @@ namespace CIS494CourseProject
                         return 1;
                     }
                 }
+                Globals.isLoggedIn = false;
                 return 0;
             }
 
